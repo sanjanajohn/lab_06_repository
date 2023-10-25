@@ -1,18 +1,21 @@
 def encoder(password):
-    list = []
+
+    encoded_pass = ""
+
     for char in password:
-        list.append(char)
+        add_three = int(char) + 3
+        if add_three >= 10:
+            if add_three == 10:
+                add_three = 0
+            elif add_three == 11:
+                add_three = 1
+            elif add_three == 12:
+                add_three = 2
 
-    new_list = []
-    for ele in list:
-        int_ele = int(ele) + 3
-        new_list.append(int_ele)
+        make_string = str(add_three)
+        encoded_pass += make_string
 
-    string = ''
-    for ele in new_list:
-        string = string + str(ele)
-
-    return string
+    return encoded_pass
 
 # Credit: Nathan Padriga
 def decoder(encoded_password):
